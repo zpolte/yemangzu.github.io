@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"><title>初学者的嵌入式 Linux 计划！ | 夜忙猪</title><meta name="description" content="初学者的嵌入式 Linux 计划！"><meta name="keywords" content="软件,Linux"><meta name="author" content="Zpolte"><meta name="copyright" content="Zpolte"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://hm.baidu.com"><link rel="preconnect" href="http://ta.qq.com"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin><link rel="preconnect" href="//busuanzi.ibruce.info"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="初学者的嵌入式 Linux 计划！"><meta name="twitter:description" content="初学者的嵌入式 Linux 计划！"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221754.png"><meta property="og:type" content="article"><meta property="og:title" content="初学者的嵌入式 Linux 计划！"><meta property="og:url" content="https://www.yemangzu.com/posts/2197848538/"><meta property="og:site_name" content="夜忙猪"><meta property="og:description" content="初学者的嵌入式 Linux 计划！"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221754.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme");
+if (autoChangeMode == '1'){
+const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+if (t === undefined){
+  if (isLightMode) activateLightMode()
+  else if (isDarkMode) activateDarkMode()
+  else if (isNotSpecified || hasNoSupport){
+    console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+    now = new Date();
+    hour = now.getHours();
+    isNight = hour < 6 || hour >= 18
+    isNight ? activateDarkMode() : activateLightMode()
+}
+} else if (t == 'light') activateLightMode()
+else activateDarkMode()
+
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="https://www.yemangzu.com/posts/2197848538/"><link rel="next" title="链表" href="https://www.yemangzu.com/posts/593668330/"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-8203635880961032',
+  enable_page_level_ads: 'true'
+});</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6618548495f7a56f4e46ace02fe80acd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script src="http://tajs.qq.com/stats?sId=66518321" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://www.yemangzu.com/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: {"languages":{"author":"作者: Zpolte","link":"链接: https://www.yemangzu.com/posts/2197848538/","source":"来源: 夜忙猪","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  isHome: false,
+  isPost: true
+  
+}</script><meta name="generator" content="Hexo 4.2.0"></head><body><header> <div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">夜忙猪</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 图书</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/Picture/"><i class="fa-fw fa fa-image"></i><span> 画廊</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fa fa-space-shuttle"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div></header><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">24</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">13</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">12</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 娱乐</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 图书</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/Picture/"><i class="fa-fw fa fa-image"></i><span> 画廊</span></a></li><li><a class="site-page" href="/games/"><i class="fa-fw fa fa-space-shuttle"></i><span> 游戏</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><div class="sidebar-toc__content"><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第一阶段：嵌入式硬件基础以及裸机程序开发"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">第一阶段：嵌入式硬件基础以及裸机程序开发</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第二阶段：linux基础以及shell编程"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">第二阶段：linux基础以及shell编程</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第三阶段：linux应用程序基础开发"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">第三阶段：linux应用程序基础开发</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第四阶段：uCOSII操作系统学习"><span class="toc_mobile_items-number">4.</span> <span class="toc_mobile_items-text">第四阶段：uCOSII操作系统学习</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第五阶段：bootloader学习"><span class="toc_mobile_items-number">5.</span> <span class="toc_mobile_items-text">第五阶段：bootloader学习</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第六阶段：文件系统学习"><span class="toc_mobile_items-number">6.</span> <span class="toc_mobile_items-text">第六阶段：文件系统学习</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第七阶段：嵌入式图形界面GUI"><span class="toc_mobile_items-number">7.</span> <span class="toc_mobile_items-text">第七阶段：嵌入式图形界面GUI</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第八阶段：linux驱动程序基础知识"><span class="toc_mobile_items-number">8.</span> <span class="toc_mobile_items-text">第八阶段：linux驱动程序基础知识</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第九阶段：linux驱动实战"><span class="toc_mobile_items-number">9.</span> <span class="toc_mobile_items-text">第九阶段：linux驱动实战</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#第十阶段：深入理解linux内核与USB子系统的研究"><span class="toc_mobile_items-number">10.</span> <span class="toc_mobile_items-text">第十阶段：深入理解linux内核与USB子系统的研究</span></a></li></ol></div></div></div><div id="body-wrap"><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一阶段：嵌入式硬件基础以及裸机程序开发"><span class="toc-number">1.</span> <span class="toc-text">第一阶段：嵌入式硬件基础以及裸机程序开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二阶段：linux基础以及shell编程"><span class="toc-number">2.</span> <span class="toc-text">第二阶段：linux基础以及shell编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三阶段：linux应用程序基础开发"><span class="toc-number">3.</span> <span class="toc-text">第三阶段：linux应用程序基础开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四阶段：uCOSII操作系统学习"><span class="toc-number">4.</span> <span class="toc-text">第四阶段：uCOSII操作系统学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五阶段：bootloader学习"><span class="toc-number">5.</span> <span class="toc-text">第五阶段：bootloader学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六阶段：文件系统学习"><span class="toc-number">6.</span> <span class="toc-text">第六阶段：文件系统学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七阶段：嵌入式图形界面GUI"><span class="toc-number">7.</span> <span class="toc-text">第七阶段：嵌入式图形界面GUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八阶段：linux驱动程序基础知识"><span class="toc-number">8.</span> <span class="toc-text">第八阶段：linux驱动程序基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九阶段：linux驱动实战"><span class="toc-number">9.</span> <span class="toc-text">第九阶段：linux驱动实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十阶段：深入理解linux内核与USB子系统的研究"><span class="toc-number">10.</span> <span class="toc-text">第十阶段：深入理解linux内核与USB子系统的研究</span></a></li></ol></div></div></div><main id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221754.png)"><div id="post-info"><div id="post-title"><div class="posttitle">初学者的嵌入式 Linux 计划！</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-08-27<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-10-16</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6/">软件</a><i class="fa fa-angle-right fa-fw" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6/Linux/">Linux</a></span><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><span><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i>阅读量:</span><span id="busuanzi_value_page_pv"></span></div></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><html><head></head><body><p>俗话说万事开头难，刚开始的时候，你是否根本就不知如何开始，上网查资料被一堆堆新名词搞的找不到北，去图书馆看书也是找不到方向?又是arm，又是linux，又是uboot头都大了，不知道自己究竟从哪里开始？</p>
+<p>简单说，从arm基础知识到裸机编程，从uCOSII到linux，从linux基础的命令到shell编程，从u-boot到文件系统，最后到现在的linux驱动程序。从简单到复杂，从基础到高级基本是按照这个来的。</p>
+<h3 id="第一阶段：嵌入式硬件基础以及裸机程序开发"><a href="#第一阶段：嵌入式硬件基础以及裸机程序开发" class="headerlink" title="第一阶段：嵌入式硬件基础以及裸机程序开发"></a><strong>第一阶段：嵌入式硬件基础以及裸机程序开发</strong></h3><p><strong>1.知识点：</strong></p>
+<p>（1） arm处理器基础知识，工作模式，寄存器，中断与异常，寻址方式，汇编指令集</p>
+<p>（2） 熟悉ADS集成开发环境为裸机程序开发做准备</p>
+<p>（3）裸机程序开发：LED，串口，LCD，触摸屏，NANDFLASH，IIC，IIS，DMA等</p>
+<p><strong>2.过程以及目的：</strong></p>
+<p>这一阶段的学习主要是熟悉嵌入式的硬件，为以后的linux驱动打基础。因为嵌入式主打处理器架构就是arm,所以针对arm来学习。首先学习基础知识，然后通过在开发板上的练习来掌握。这一阶段所用的资料主要有：</p>
+<p>（1） 《ARM嵌入式基础教程》 这本书主要看arm基础的知识。这本书是讲arm7的，但是arm的基础的指令集以及模型是一样的。</p>
+<p>（2） 《嵌入式linux应用开发完全手册》 这本书主要看介绍s3c2410接口模块的部分，实验裸机的时候需要硬件的知识。</p>
+<p><strong>3.所用时间：</strong>大约两个月。</p>
+<h3 id="第二阶段：linux基础以及shell编程"><a href="#第二阶段：linux基础以及shell编程" class="headerlink" title="第二阶段：linux基础以及shell编程"></a><strong>第二阶段：linux基础以及shell编程</strong></h3><p><strong>1.知识点：</strong></p>
+<p>（1） linux基础知识</p>
+<p>（2） linux安装与使用</p>
+<p>（3） linux常用命令</p>
+<p>（4） vi使用</p>
+<p>（5） 简单shell编程</p>
+<p><strong>2.过程以及目的：</strong>  </p>
+<p>这一阶段的学习主要是熟悉linux，会安装linux，了解Linux的基础知识，会简单的操作。刚开始安装linux还是在虚拟机上安装比较好,安装开发板推荐的Fedora9，按照开发板配套的说明一步一步的安装，然后在上面练习各种命令。</p>
+<p>这一阶段主要要看《鸟哥的linux私房菜基础学习篇》，这个书有电子版，也不用全看，主要是看前面对Linux基础知识的描述，以及基本的命令。命令只是了解，那么多记也记不下来，以后用时再查阅。这一阶段主要目的是对linux有一个整体的了解，最起码要知道基础的一些概念，还有会一些基本的操作。</p>
+<p><strong>3.时间：</strong>大约一个月。</p>
+<h3 id="第三阶段：linux应用程序基础开发"><a href="#第三阶段：linux应用程序基础开发" class="headerlink" title="第三阶段：linux应用程序基础开发"></a><strong>第三阶段：linux应用程序基础开发</strong></h3><p><strong>1.知识点：</strong></p>
+<p>  （1） GCC，GDB，Make 基础</p>
+<p>  （2） 文件，时间编程</p>
+<p>  （3） 多进程，多线程程序设计</p>
+<p>  （4） 进程间通信</p>
+<p><strong>2. 过程以及目的：</strong></p>
+<p>这一阶段的学习主要是了解linux应用程序的编写调试，也都是基础知识，主要目的还是熟悉Linux。熟悉其中应用程序有关的一些概念，为以后打基础。这一阶段主要看了《嵌入式Linux应用程序开发标准教程》，这本书对linux上应用程序编写讲的很详细，而且不是很难，那本最经典的《UNIX高级环境编程》讲的比较深入，刚开始看有点难，万事开头难还是从简单的开始。学习应用编程以后也不一定搞应用，从事嵌入式linux行业的人，这是必须的基本技能。</p>
+<p><strong>3. 时间：</strong>大约一个月</p>
+<h3 id="第四阶段：uCOSII操作系统学习"><a href="#第四阶段：uCOSII操作系统学习" class="headerlink" title="第四阶段：uCOSII操作系统学习"></a><strong>第四阶段：uCOSII操作系统学习</strong></h3><p><strong>1.知识点：</strong></p>
+<p>  （1）嵌入式实时操作系统的概念以及基础知识</p>
+<p>  （2）uCOSII操作系统源代码阅读</p>
+<p>  （3）移植uCOSII</p>
+<p>  （4）uCOSII操作系统应用编程</p>
+<p><strong>2.过程以及目的：</strong></p>
+<p>这一阶段的学习主要是了解嵌入式实时操作系统的基础，因为uCOSII是开源的，可以研究他的代码。对操作系统的任务调度以及资源管理有直观的认识。并且阅读他的源码能够提高自己的编程能力，规范自己的编程习惯。虽然提供了uCOSII的移植版本，但是自己实际移植一次能够有更深刻的认识。</p>
+<p>这个操作系统比较简单，所以应用程序的编写就很重要，在上面实现几个功能还是有助于对系统的理解。这一阶段主要看的就是邵贝贝翻译的uCOSII作者所著的《嵌入式实时操作系统uCOS-II》,里面对操作系统的源码有详细的分析。看透这本书后就会对uCOSII有一个深入的了解。这一阶段的主要目的是了解操作系统的知识，比如任务调度，并发与竞态。还有一个目的就是锻炼自己的编程能力。因为如果看介绍操作系统原理的书会比较枯燥，我感觉阅读一个操作系统的源码比看一千本介绍原理的书来的实惠的多。</p>
+<p><strong>3.时间：</strong>大约一个月</p>
+<h3 id="第五阶段：bootloader学习"><a href="#第五阶段：bootloader学习" class="headerlink" title="第五阶段：bootloader学习"></a><strong>第五阶段：bootloader学习</strong></h3><p><strong>1.知识点：</strong></p>
+<p>  （1）bootloader基础知识</p>
+<p>  （2）u-boot基础与命令</p>
+<p>  （3）u-boot移植</p>
+<p><strong>2.过程以及目的：</strong><br>bootloader是一个linux嵌入式系统的不可缺少的部分。这一阶段的学习主要是了解bootloader的作用，以及通用bootloader—u-boot的知识，刚开始学会用u-boot的各种命令。然后分析u-boot的启动流程和Makefile以及u-boot加载内核过程。然后按照别人的步骤一步一步的移植内核，多做几遍以熟悉这个过程。然后在熟悉整个u-boot的基础上，独自完成u-boot的移植，并添加自己修改。这一阶段主要参考资料就是光盘自带的u-boot移植参考手册和一些网络上的文章。个人感觉u-boot移植这方面的网络资源相当的丰富。</p>
+<p><strong>3.时间：</strong>大约一个月</p>
+<h3 id="第六阶段：文件系统学习"><a href="#第六阶段：文件系统学习" class="headerlink" title="第六阶段：文件系统学习"></a><strong>第六阶段：文件系统学习</strong></h3><p><strong>1.知识点：</strong></p>
+<p>  （1）linux文件系统的种类与作用</p>
+<p>  （2）熟悉busybox的使用，以及linux系统启动过程</p>
+<p>  （3）构建自己的根文件系统</p>
+<p><strong>2.过程以及目的:</strong><br>文件系统也是一个linux嵌入式系统不可缺少的部分，这一阶段的学习主要是熟悉根文件系统的作用以及基础知识，并且自己构建自己的根文件系统。这一阶段所看的书有《构建嵌入式linux系统》，这本书详细讲解了嵌入式linux的所有元素，包括文件系统。这里主要看文件系统这块。我还参考了网上的一些文章。这里首先要熟悉基本的一些Linux文件系统,然后学习busybox的使用以及linux的启动过程，最后参考别人的一步一步来构建自己的文件系统。</p>
+<p><strong>3.时间：</strong>大约半个月</p>
+<h3 id="第七阶段：嵌入式图形界面GUI"><a href="#第七阶段：嵌入式图形界面GUI" class="headerlink" title="第七阶段：嵌入式图形界面GUI"></a><strong>第七阶段：嵌入式图形界面GUI</strong></h3><p><strong>1.知识点：</strong></p>
+<p> （1）嵌入式图形界面GUI的种类与特点</p>
+<p>  （2）minigui 基础知识</p>
+<p>  （3）minigui 移植与程序编写</p>
+<p><strong>2.过程以及目的：</strong><br>嵌入式图形界面GUI作为嵌入式上层系统的东西也是需要了解的，这里我只学习了minigui，因为QT是需要C++的知识，而我没有学过C++，所以只看了minigui的相关知识。这个阶段的目的主要是熟悉一下嵌入式图形接界面的开发流程，因为以后也不打算搞应用。</p>
+<p>只是熟悉一下嵌入式组成的一些方面。这里只要将minigui移植到板子上能跑hello程序就可以了。其他的也不用深入了解。通过移植minigui对linux上运行的软件以及函数库，程序运行原理，编译器都会有一个新的认识。</p>
+<p><strong>3 时间：</strong>大约半个月</p>
+<h3 id="第八阶段：linux驱动程序基础知识"><a href="#第八阶段：linux驱动程序基础知识" class="headerlink" title="第八阶段：linux驱动程序基础知识"></a><strong>第八阶段：linux驱动程序基础知识</strong></h3><p><strong>1.知识点：</strong></p>
+<p>（1）看完《LINUX设备驱动程序》除了网络驱动程序，tty驱动程序，块驱动程序这几章不看，其他的都要看完。</p>
+<p>（2）实验书中所有例程，要仔细分析结果，理解相关知识点。</p>
+<p>（3）就算是例子，程序编程习惯一定要统一，文档一定要规范。</p>
+<p><strong>2.过程以及目的</strong></p>
+<p>这一阶段的目的就是为了linux驱动打基础，《LINUX设备驱动程序》（第三版）也就是大家所说的ldd3，是最经典的一本讲linux驱动的书，一定要看而且多看几遍。第一次看很难看进去，感觉讲的晦涩难懂。但是多看几遍就会由豁然开朗的感觉。看完了书，然后就是实验书中的例子。</p>
+<p>﻿<strong>3.时间：</strong>大约两个月</p>
+<h3 id="第九阶段：linux驱动实战"><a href="#第九阶段：linux驱动实战" class="headerlink" title="第九阶段：linux驱动实战"></a><strong>第九阶段：linux驱动实战</strong></h3><p><strong>1. 知识点：</strong></p>
+<p>  （1）通过led驱动理解杂项字符设备的注册与实现，并掌握MINI2440的IO操作过程。</p>
+<p>  （2）通过button驱动程序掌握基本的中断实现方法。</p>
+<p>  （3）掌握PWM驱动程序。</p>
+<p>  （4）通过触摸屏驱动程序掌握input设备模型的实现。</p>
+<p>  （5）掌握ADC驱动程序的设计</p>
+<p>  （6）掌握看门狗,rtc驱动程序的设计</p>
+<p>  （7）通过LCD驱动程序分析platform设备模型的实现。</p>
+<p><strong>2.过程以及目的：</strong><br>这一阶段的学习主要是掌握实际的简单的驱动程序的实现与ldd3中的差别，并且分析一些linux子系统。通过这一阶段的学习，能够对linux驱动程序有更深入的认识。并且锻炼自己阅读海量代码的能力。这一阶段主要工作就是看代码，实验，看代码，实验，通过现象学习知识。</p>
+<p><strong>3. 时间：</strong>大约一个月</p>
+<h3 id="第十阶段：深入理解linux内核与USB子系统的研究"><a href="#第十阶段：深入理解linux内核与USB子系统的研究" class="headerlink" title="第十阶段：深入理解linux内核与USB子系统的研究"></a><strong>第十阶段：深入理解linux内核与USB子系统的研究</strong></h3><p>‌前九个阶段完成了，自己感觉嵌入式Linux应该应该算是入门了。所以要开始计划第十个阶段了。这一阶段基本上要确定自己未来的发展方向了。因为现在嵌入式系统的标准接口都有USB，所以学会USB的相关知识是很有竞争力的。搞驱动的人对内核应该有一定的了解，所以《深入理解Linux内核》还是必须的。</p>
+<p>这一阶段主要是学习USB协议，阅读linux USB子系统全部的代码，通过阅读代码加深对USB的理解，随后就是熟悉各种USB类协议，编写和移植USB驱动了。USB是我确定的方向，因为我想搞什么东西都要专一，什么都搞，什么也搞不好。所以我决定学习USB。决定以后从事嵌入式有关USB方面的工作。这一阶段的学习正在进行中，现在正在linux USB子系统浩瀚的代码中漫游。</p>
+<p><a href="https://cdn.jsdelivr.net/gh/zpolte/data/img/ymz.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/ymz.png" class="lazyload"></a></p>
+</body></html></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Zpolte</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.yemangzu.com/posts/2197848538/">https://www.yemangzu.com/posts/2197848538/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.yemangzu.com">夜忙猪</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%BD%AF%E4%BB%B6/">软件    </a><a class="post-meta__tags" href="/tags/Linux/">Linux    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221754.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/wechat.jpg" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/alipay.jpg" alt="支付宝"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/posts/593668330/"><img class="next_cover lazyload" data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221710.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>链表</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/posts/3759941023/" title="通过远程桌面图形界面的方式操作Ubuntu服务器"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/ubuntu-3145957_1280.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-10-12</div><div class="relatedPosts_title">通过远程桌面图形界面的方式操作Ubuntu服务器</div></div></a></div><div class="relatedPosts_item"><a href="/posts/593668330/" title="链表"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221710.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-13</div><div class="relatedPosts_title">链表</div></div></a></div><div class="relatedPosts_item"><a href="/posts/1628819533/" title="嵌入式系统软件架构设计"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221306.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-02-27</div><div class="relatedPosts_title">嵌入式系统软件架构设计</div></div></a></div><div class="relatedPosts_item"><a href="/posts/1711964220/" title="要从头开始学习算法啦"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/39146191_0426_20200508-081337.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-03-15</div><div class="relatedPosts_title">要从头开始学习算法啦</div></div></a></div><div class="relatedPosts_item"><a href="/posts/3384778559/" title="传感器3种常用算法处理"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221755.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2019-08-15</div><div class="relatedPosts_title">传感器3种常用算法处理</div></div></a></div><div class="relatedPosts_item"><a href="/posts/4264057631/" title="排序算法-快排"><img class="relatedPosts_cover lazyload"data-src="https://cdn.jsdelivr.net/gh/zpolte/data/img/39146191_1055_20200508-082217.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-03</div><div class="relatedPosts_title">排序算法-快排</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var notify = false == true ? true : false;
+var verify = false == true ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'2wQJDnoQilY5VjOyvIMuYLi2-gzGzoHsz',
+  appKey:'e8IE8Sl1oFp4dgatpUT4bRsw',
+  placeholder:'Please leave your footprints',
+  avatar:'monsterid',
+  guest_info:guest_info,
+  pageSize:'10',
+  lang:'zh-cn',
+  recordIP: true
+});</script></div></div></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/zpolte/data/img/20201016221754.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By Zpolte</div><div class="icp"><a href="http://beian.miit.gov.cn" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"><span>津公网安备 12011102000800号 | 津ICP备19007880号-1</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="false" src="https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/live2d-widget@^3.1.3/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"position":"right","width":150,"height":300,"hOffset":20,"vOffset":-90},"mobile":{"show":true,"scale":1},"react":{"opacityDefault":0.3,"opacityOnHover":0.3,"opacity":0.95},"log":false});</script></body></html>
